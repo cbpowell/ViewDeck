@@ -1373,9 +1373,9 @@ static NSTimeInterval durationToAnimate(CGFloat pointsToAnimate, CGFloat velocit
             [self controllerForSide:side].view.hidden = NO;
             [self setSlidingFrameForOffset:bounceOffset forOrientation:IIViewDeckOffsetOrientationFromIIViewDeckSide(side)];
         } completion:^(BOOL finished) {
-            [self centerViewHidden];
             // run block if it's defined
             if (bounced) bounced(self);
+            [self centerViewHidden];
             [self performDelegate:@selector(viewDeckController:didBounceViewSide:openingController:) side:side controller:self.leftController];
             
             // now slide the view back to the ledge position
